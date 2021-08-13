@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>kuis1</title>
+    <title>Kuis Matematika</title>
 
     <meta http-equiv="Content-Type" content="text/html; CHARSET=Windows-1252">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="Author" content="Made with QuizFaber 4.0.20">
     <meta name="generator" content="QuizFaber 4.0.20">
     <meta name="keywords" content="quiz">
-    <meta name="description" content="Kuis Matematika 8">
+    <meta name="description" content="Kelas 8">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -55,7 +55,7 @@
         </div>
 
         <div class="panel panel-primary">
-            <div class="panel-heading"><b>Quiz Result</b></div>
+            <div class="panel-heading"><b>Hasil Kuis</b></div>
 
             <div class="panel-body">
 
@@ -77,35 +77,35 @@
                 <ul class="list-group" id="idReportSummary">
                     <li class="list-group-item">
                         <div class="row">
-                            <div class="col-sm-6" id="idReportNameOrEmail">Candidate name</div>
+                            <div class="col-sm-6" id="idReportNameOrEmail">Nama Peserta </div>
                             <div id="idUserName" class="col-sm-6 text-right"></div>
                         </div>
                     </li>
-                    <li class="list-group-item" id="idReportNumOfQuestions">Number of questions <span id="idNumOfQuestions" class="badge"></span></li>
-                    <li class="list-group-item" id="idReportCorrectAnswers">Right Answers <span id="idCorrectAnswers" class="badge"></span></li>
-                    <li class="list-group-item" id="idReportWrongAnswers">Wrong Answers <span id="idWrongAnswers" class="badge"></span></li>
-                    <li class="list-group-item" id="idReportNotValuatedAnswers">Unmarked questions <span id="idNotValuatedAnswers" class="badge"></span></li>
+                    <li class="list-group-item" id="idReportNumOfQuestions">Jumlah pertanyaan <span id="idNumOfQuestions" class="badge"></span></li>
+                    <li class="list-group-item" id="idReportCorrectAnswers">Jawaban benar <span id="idCorrectAnswers" class="badge"></span></li>
+                    <li class="list-group-item" id="idReportWrongAnswers">Jawaban salah <span id="idWrongAnswers" class="badge"></span></li>
+                    <li class="list-group-item" id="idReportNotValuatedAnswers">P{ertanyaan terbuka <span id="idNotValuatedAnswers" class="badge"></span></li>
                     <li class="list-group-item">
                         <div class="row">
-                            <div class="col-sm-6">Date</div>
+                            <div class="col-sm-6">Tanggal</div>
                             <div id="idStartDate" class="col-sm-6 text-right"></div>
                         </div>
                     </li>
                     <li class="list-group-item" id="idReportTimeElapsed">
                         <div class="row">
-                            <div class="col-sm-6">Time elapsed</div>
+                            <div class="col-sm-6">Waktu </div>
                             <div id="idTimeElapsed" class="col-sm-6 text-right"></div>
                         </div>
                     </li>
                     <li class="list-group-item" id="idReportFinalMark">
                         <div class="row">
-                            <div class="col-sm-6">MARK</div>
+                            <div class="col-sm-6">Skor</div>
                             <div id="idFinalMark" class="col-sm-6 text-right"></div>
                         </div>
                     </li>
                     <li class="list-group-item" id="idReportNumRetake">
                         <div class="row">
-                            <div class="col-sm-6">Number of retakes</div>
+                            <div class="col-sm-6">Mengerjakan kembali</div>
                             <div id="idNumRetake" class="col-sm-6 text-right"></div>
                         </div>
                     </li>
@@ -120,10 +120,10 @@
         </div>
 
         <div class="text-center">
-            <button type="button" id="idBtnPrint" class="btn btn-primary" onclick="onPrintClick()" style="display:none">PRINT</button>
-            <button type="button" id="idBtnRepeat" class="btn btn-primary" onclick="onRepeatClick()" style="display:none">REPEAT</button>
+            <button type="button" id="idBtnPrint" class="btn btn-primary" onclick="onPrintClick()" style="display:none">CETAK</button>
+            <button type="button" id="idBtnRepeat" class="btn btn-primary" onclick="onRepeatClick()" style="display:none">ULANG</button>
             <button type="button" id="idBtnLinkback" class="btn btn-primary" onclick="GoToPage('', true)" style="display:none"></button>
-            <button type="button" class="btn btn-primary" onclick="onExitClick()">QUIT</button>
+            <button type="button" class="btn btn-primary" onclick="onExitClick()">KELUAR</button>
         </div>
     </div>
 </body>
