@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Kuis Mat 8</title>
+
+    <meta http-equiv="Content-Type" content="text/html; CHARSET=Windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Author" content="Made with QuizFaber 4.0.20">
+    <meta name="generator" content="QuizFaber 4.0.20">
+    <meta name="keywords" content="quiz">
+    <meta name="description" content="Pola Bilangan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="../scripts/error.js"></script>
+    <script src="../scripts/definitions.js"></script>
+    <script src="../scripts/security.js"></script>
+    <script src="../scripts/cookie.js"></script>
+    <script src="../scripts/storage.js"></script>
+    <script src="../scripts/time.js"></script>
+    <script src="../scripts/valuation.js"></script>
+    <script src="../scripts/navigation.js"></script>
+    <script src="../scripts/utility.js"></script>
+    <script src="../scripts/engine.js"></script>
+    <script src="../scripts/view.js"></script>
+    <script src="../scripts/matching.js"></script>
+    <script src="../scripts/lightbox.js"></script>
+
+    <script src="../scripts/page.js"></script>
+    
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/lightbox.css">
+    
+
+</head>
+<body>
+
+    <div class="header" id="idTopBar">
+        <div class="row">
+            <div class="col-sm-3 col-xs-12 text-left text-xs-center"><span class="label_topbar_clock" id="idClock"></span></div>
+            <div class="col-sm-2 col-xs-3 text-center text-xs-left" id="idDivCorrectAnswer"><span class="label_topbar nowrap">correct</span> <span id="idCorrectAnswers" class="badge"></span> </div>
+            <div class="col-sm-2 col-xs-3 text-center text-xs-left" id="idDivWrongAnswer"><span class="label_topbar nowrap">wrong</span> <span id="idWrongAnswers" class="badge"></span> </div>
+            <div class="col-sm-2 col-xs-3 text-center text-xs-left" id="idDivToBeAnswered"><span class="label_topbar nowrap">to be answered</span> <span id="idToBeAnswered" class="badge"></span> </div>
+            <div class="col-sm-3 col-xs-3 text-right">
+                <button id="idBtnPrintQuiz" type="button" class="btn btn-primary" onclick="onPrintQuizButtonClick()" style="display:none">PRINT</button>
+                <button id="idBtnGoToResults" type="button" class="btn btn-primary" onclick="onQuizResultsButtonClick()" style="display:none">Quiz Result</button>
+                <button id="idBtnRetire" type="button" class="btn btn-warning" onclick="onAbandonButtonClick()" style="display:none">Retire</button>
+            </div>
+            </div>
+        </div>
+
+    <div class="container">
+
+        <div class="jumbotron" id="idQuizHeader">
+            <h1 id="idQuizTitle"></h1>
+            <p class="lead">
+                <span id="idQuizDescription"></span>
+            <p id="idQuizProfile" style="display:none">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#idQuizProfileInfo">More info</button>
+                <div id="idQuizProfileInfo" class="collapse">
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Author</strong><span class="pull-right" id="idAuthor"></span></li>
+                        <li class="list-group-item"><strong>Argument</strong><span class="pull-right" id="idArgument"></span></li>
+                        <li class="list-group-item"><strong>Company</strong><span class="pull-right" id="idCompany"></span></li>
+                        <li class="list-group-item"><strong>Date</strong><span class="pull-right" id="idDate"></span></li>
+                    </ul>
+                </div>
+            </p>
+            </p>
+        </div>
+
+        <div class="panel panel-default" id="idQuizResultsPanelTop" style="display:none">
+            <div class="panel-body">
+                <button type="button" class="btn btn-primary center-block" onclick="onQuizResultsButtonClick()">Quiz Result</button>
+            </div>
+        </div>
+
+        <div class="panel panel-default" id="idVerifyPanelTop" style="display:none">
+            <div class="panel-body">
+                <span>Klik tombol "SELESAI" setelah anda yakin semua soal sudah terjawab</span>
+                <button type="button" class="btn btn-primary pull-right" onclick="onVerifyButtonClick()">SELESAI</button>
+            </div>
+        </div>
+
+        <div class="well" id="idSectionTextIntro" style="display:none"></div>
+
+        <div class="panel panel-primary" id="idPanel1" ><div class="panel-heading" ><b>question 1</b></div><div class="panel-body" ><div id="divSuccess0" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail0" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect0" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo0" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning0" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg0" /></div>
+<div id="divError0" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg0" /></div>
+<p><span class="class_qst_format text_full_width"><p><b><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Cocokkan kolom sebelah kiri dengan kolom sebelah kanan !</span></b></p>    <p>&nbsp;</p>    <p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Perhatikan Gambar stiker milik Anton berikut ini !</span></p>    <p>&nbsp;</p>    <p><img width="211" height="167" src="../media/img_0001_0000_00_1.jpg"></p>    <p>&nbsp;</p>    <p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Pilihlah &quot;Benar&quot; atau &quot;Salah&quot; Pernyataan berikut ini !</span></p></span></p><form class="class_bool_choices" ><ol><li><p><span class="quiz_answer_class"><p><b><i><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Stiker Anton yang paling sedikit adalah stiker berbentuk persegi</span></i></b></p></span></p><div class="row" ><div class="col-sm-12 col-md-12 col-lg-12" ><input type="radio" id="idRadio0_0_T" name="optradio0_0" value="1" /><span class="true_false_class" >TRUE</span><input type="radio" id="idRadio0_0_F" name="optradio0_0" value="0" /><span class="true_false_class" >FALSE</span></div></div><br/></li><li><p><span class="quiz_answer_class"><p><b><i><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Stiker Anton yang paling banyak adalah stiker berbentuk lingkaran</span></i></b></p></span></p><div class="row" ><div class="col-sm-12 col-md-12 col-lg-12" ><input type="radio" id="idRadio0_1_T" name="optradio0_1" value="1" /><span class="true_false_class" >TRUE</span><input type="radio" id="idRadio0_1_F" name="optradio0_1" value="0" /><span class="true_false_class" >FALSE</span></div></div><br/></li></ol></form>
+</div></div>
+<div class="panel panel-primary" id="idPanel2" ><div class="panel-heading" ><b>question 2</b></div><div class="panel-body" ><div id="divSuccess1" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail1" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect1" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo1" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning1" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg1" /></div>
+<div id="divError1" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg1" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Andi mendapatkan kue 5/6 bagian dan Susi mendapat 6/7 bagian dari kue yang sama. </span></p>    <p>&nbsp;</p>    <p><b><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Pilihlah semua pernyataan yang &quot;Benar&quot; dari pernyataan dibawah ini !</span></b></p></span></p><form><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox1_0" type="checkbox" value="1" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Andi mendapatkan </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">bagian </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">kue yang lebih banya</span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">k</span></p></span></label><br/></div><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox1_1" type="checkbox" value="2" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Susi mendapatkan </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">bagian </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">kue lebih banyak</span></p></span></label><br/></div><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox1_2" type="checkbox" value="3" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Andi mendapatkan </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">bagian </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">kue lebih sedikit</span></p></span></label><br/></div><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox1_3" type="checkbox" value="4" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Susi</span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;"> mendapatkan </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">bagian </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">kue yang lebih banya</span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">k</span></p></span></label><br/></div></form>
+</div></div>
+<div class="panel panel-primary" id="idPanel3" ><div class="panel-heading" ><b>question 3</b></div><div class="panel-body" ><div id="divSuccess2" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail2" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect2" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo2" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning2" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg2" /></div>
+<div id="divError2" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg2" /></div>
+<p><span class="class_qst_format text_full_width"><p><b><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Ilustrasi</span></b></p>    <p>&nbsp;</p>    <p><img width="327" height="181" src="../media/img_0003_0000_00_1.jpg"></p>    <p>&nbsp;</p>    <p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Diketahui banyak rumah seluruhnya pada gambar di atas adalah 9 rumah. Penomorannya secara berutuan menggunakan angka ganjil dimulai dari 1 (satu) untuk nomor rumah yang berada paling kanan.  Nomor rumah pada urutan keenam dari kanan dan nomor rumah pada urutan ketujuh dari kiri adalah ... </span></p></span></p><form><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox2_0" type="checkbox" value="1" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">5</span></p></span></label><br/></div><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox2_1" type="checkbox" value="2" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">7</span></p></span></label><br/></div><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox2_2" type="checkbox" value="3" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">9</span></p></span></label><br/></div><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox2_3" type="checkbox" value="4" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">11</span></p></span></label><br/></div><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox2_4" type="checkbox" value="5" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">13</span></p></span></label><br/></div></form>
+</div></div>
+<div class="panel panel-primary" id="idPanel4" ><div class="panel-heading" ><b>question 4</b></div><div class="panel-body" ><div id="divSuccess3" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail3" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect3" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo3" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning3" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg3" /></div>
+<div id="divError3" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg3" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Menurut pola bilangan Fibonacci  1, 2, 3, 5, 8, 13, ... dua bilangan selanjutnya yang benar adalah ...</span></p></span></p><form><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox3_0" type="checkbox" value="1" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">20</span></p></span></label><br/></div><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox3_1" type="checkbox" value="2" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">21</span></p></span></label><br/></div><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox3_2" type="checkbox" value="3" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">27</span></p></span></label><br/></div><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox3_3" type="checkbox" value="4" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">34</span></p></span></label><br/></div></form>
+</div></div>
+<div class="panel panel-primary" id="idPanel5" ><div class="panel-heading" ><b>question 5</b></div><div class="panel-body" ><div id="divSuccess4" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail4" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect4" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo4" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning4" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg4" /></div>
+<div id="divError4" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg4" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Foto berikut adalah tempat alat tulis milik Raisa yang berada di meja belajarnya. </span></p>    <p>&nbsp;</p>    <p>&nbsp;</p>    <p><img width="172" height="118" src="../media/img_0005_0000_00_1.jpg"></p>    <p>&nbsp;</p>    <p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Jika tempat alat tulis tersebut difoto dari atas, manakah gambar yang sesuai dengan tempat alat tulis tersebut?</span></p></span></p><form><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio4_0" type="radio" name="optradio4" value="1" class="radio_answer" /><span class="class_ans_format text_full_width"><p><img width="82" height="75" src="../media/img_0005_0001_00_1.jpg"></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio4_1" type="radio" name="optradio4" value="2" class="radio_answer" /><span class="class_ans_format text_full_width"><p><img width="82" height="85" src="../media/img_0005_0002_00_1.jpg"></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio4_2" type="radio" name="optradio4" value="3" class="radio_answer" /><span class="class_ans_format text_full_width"><p><img width="83" height="80" src="../media/img_0005_0003_00_1.jpg"></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio4_3" type="radio" name="optradio4" value="4" class="radio_answer" /><span class="class_ans_format text_full_width"><p><img width="82" height="78" src="../media/img_0005_0004_00_1.jpg"></p></span></label><br/></div></form>
+</div></div>
+<div class="panel panel-primary" id="idPanel6" ><div class="panel-heading" ><b>question 6</b></div><div class="panel-body" ><div id="divSuccess5" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail5" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect5" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo5" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning5" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg5" /></div>
+<div id="divError5" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg5" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Dalam suatu gedung pertunjukan terdapat 9 baris kursi. Pada baris pertama terdapat </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">7</span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;"> kursi, baris kedua </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">12</span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;"> kursi, baris ketiga </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">10</span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;"> kursi, baris keempat </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">15 </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">kursi, </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">baris kelima ada 13 kursi, </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">dan seterusnya mengikuti pola yang sama.</span></p>    <p>&nbsp;</p>    <p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Banyaknya kursi pada baris terakhir adalah ...</span></p></span></p><form><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio5_0" type="radio" name="optradio5" value="1" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">21</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio5_1" type="radio" name="optradio5" value="2" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">19</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio5_2" type="radio" name="optradio5" value="3" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">18</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio5_3" type="radio" name="optradio5" value="4" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">16</span></p></span></label><br/></div></form>
+</div></div>
+<div class="panel panel-primary" id="idPanel7" ><div class="panel-heading" ><b>question 7</b></div><div class="panel-body" ><div id="divSuccess6" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail6" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect6" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo6" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning6" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg6" /></div>
+<div id="divError6" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg6" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Dalam suatu gedung pertunjukan terdapat 9 baris kursi. Pada baris pertama terdapat </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">7</span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;"> kursi, baris kedua </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">12</span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;"> kursi, baris ketiga </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">10</span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;"> kursi, baris keempat </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">15 </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">kursi, </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">baris kelima ada 13 kursi, </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">dan seterusnya mengikuti pola yang sama.</span></p>    <p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Ternyata penonton lebih suka duduk di bangku pada urutan tiga baris terakhir, jumlah kursi yang dapat ditempati pada tiga baris tersebut adalah ...</span></p>    <p>&nbsp;</p>    <p>&nbsp;</p>    <p>&nbsp;</p></span></p><form><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio6_0" type="radio" name="optradio6" value="1" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">51</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio6_1" type="radio" name="optradio6" value="2" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">55</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio6_2" type="radio" name="optradio6" value="3" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">56</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio6_3" type="radio" name="optradio6" value="4" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">64</span></p></span></label><br/></div></form>
+</div></div>
+<div class="panel panel-primary" id="idPanel8" ><div class="panel-heading" ><b>question 8</b></div><div class="panel-body" ><div id="divSuccess7" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail7" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect7" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo7" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning7" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg7" /></div>
+<div id="divError7" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg7" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Aliyah menumpuk beberapa telur menjadi bentuk berikut ini, </span></p>    <p>&nbsp;</p>    <p><img width="199" height="178" src="../media/img_0008_0000_00_1.jpg"></p>    <p>&nbsp;</p>    <p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Berapa banyaknya telur yang berada pada tingkat ketiga dari dasar tumpukan ?</span></p>    <p>&nbsp;</p></span></p><form><div class="form-group" ><label for="comment7" ></label><textarea class="form-control" rows="5" id="comment7" ></textarea></div></form>
+</div></div>
+<div class="panel panel-primary" id="idPanel9" ><div class="panel-heading" ><b>question 9</b></div><div class="panel-body" ><div id="divSuccess8" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail8" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect8" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo8" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning8" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg8" /></div>
+<div id="divError8" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg8" /></div>
+<p><span class="class_qst_format text_full_width"><p><b><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Perhatikan gambar berikut ini !</span></b></p>    <p>&nbsp;</p>    <p><img width="199" height="178" src="../media/img_0009_0000_00_1.jpg"></p>    <p>&nbsp;</p>    <p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Aliyah kan menambahkan dua tingkat diabawah susunan tersebut, tentukan nilai kebenaran dua pernyataan dibawah ini !</span></p>    <p>&nbsp;</p>    <p>&nbsp;</p></span></p><form class="class_bool_choices" ><ol><li><p><span class="quiz_answer_class"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Jumlah seluruh telur setelah ditambahkan tingkat yang baru adalah 204 butir </span></p></span></p><div class="row" ><div class="col-sm-12 col-md-12 col-lg-12" ><input type="radio" id="idRadio8_0_T" name="optradio8_0" value="1" /><span class="true_false_class" >TRUE</span><input type="radio" id="idRadio8_0_F" name="optradio8_0" value="0" /><span class="true_false_class" >FALSE</span></div></div><br/></li><li><p><span class="quiz_answer_class"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Selisih telur pada susunan semula dengan susunan yang baru adalah 113 butir</span></p></span></p><div class="row" ><div class="col-sm-12 col-md-12 col-lg-12" ><input type="radio" id="idRadio8_1_T" name="optradio8_1" value="1" /><span class="true_false_class" >TRUE</span><input type="radio" id="idRadio8_1_F" name="optradio8_1" value="0" /><span class="true_false_class" >FALSE</span></div></div><br/></li></ol></form>
+</div></div>
+<div class="panel panel-primary" id="idPanel10" ><div class="panel-heading" ><b>question 10</b></div><div class="panel-body" ><div id="divSuccess9" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail9" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect9" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo9" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning9" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg9" /></div>
+<div id="divError9" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg9" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Dalam suatu gedung pertunjukan terdapat 9 baris kursi. Pada baris pertama terdapat </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">7</span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;"> kursi, baris kedua </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">12</span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;"> kursi, baris ketiga </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">10</span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;"> kursi, baris keempat </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">15 </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">kursi, </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">baris kelima ada 13 kursi, </span><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">dan seterusnya mengikuti pola yang sama.</span></p>    <p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Pada suatu malam, semua kursi pada gedung tersebut terisi penuh. Apabila harga tiket pertunjukan untuk satu kursi adalah Rp50.000, berapakah uang yang terkumpul pada malam tersebut ?</span></p>    <p>&nbsp;</p>    <p>&nbsp;</p>    <p>&nbsp;</p></span></p><form><div class="form-group" ><label for="comment9" ></label><textarea class="form-control" rows="5" id="comment9" ></textarea></div></form>
+</div></div>
+
+
+        <div class="well" id="idSectionTextEpilogue" style="display:none"></div>
+
+        <div class="panel panel-default" id="idQuizResultsPanelBottom" style="display:none">
+            <div class="panel-body">
+                <button type="button" class="btn btn-primary center-block" onclick="onQuizResultsButtonClick()">Quiz Result</button>
+            </div>
+        </div>
+
+        <div class="panel panel-default" id="idVerifyPanelBottom" style="display:none">
+            <div class="panel-body">
+                <span>Klik tombol "SELESAI" setelah anda yakin semua soal sudah terjawab</span>
+                <button type="button" class="btn btn-primary pull-right" onclick="onVerifyButtonClick()">SELESAI</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Modal -->
+    <div id="idModalNotification" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Information</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="idModalNotificationText"></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="idModalNotificationCloseButton" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="idModalConfirmation" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="idModalConfirmationText"></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="idModalConfirmationYesButton" type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+                    <button id="idModalConfirmationNoButton" type="button" data-dismiss="modal" class="btn">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sounds -->
+    <audio id="idCorrectAnswerSound" src="" />
+    <audio id="idWrongAnswerSound" src="" />
+    <audio id="idPartiallyCorrectAnswerSound" src="" />
+    <audio loop muted autoplay id="idBackgroundSound" src="" />
+
+    <script>
+        var header = $('#idTopBar');
+        // Get the offset position of the top bar
+        var sticky = header.offset();
+
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function PageOnScroll()
+        {
+            if (window.pageYOffset > sticky.top) {
+                header.addClass("sticky");
+            }
+            else {
+                header.removeClass("sticky");
+            }
+        } 
+    </script>
+</body>
+</html>
